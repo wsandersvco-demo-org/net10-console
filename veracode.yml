@@ -1,0 +1,6 @@
+actions:
+  veracode_static_scan:
+    build:
+      predependency_command: |
+        apt update
+        apt install -y dotnet-sdk-10.0
