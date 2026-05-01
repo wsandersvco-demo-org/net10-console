@@ -2,8 +2,17 @@ actions:
   veracode_static_scan:
     build:
       predependency_command: |
-        apt update
-        apt install -y dotnet-sdk-10.0
+        apt-get update
+        apt-get install -y ca-certificates \
+          libc6 \
+          libgcc-s1 \
+          libgssapi-krb5-2 \
+          libicu74 \
+          libssl3t64 \
+          libstdc++6 \
+          tzdata \
+          zlib1g
+        curl -sSL https://dot.net/v1/dotnet-install.sh | bash -s -- --channel 10.0 --install-dir /opt/veracode/dotnet
 
 veracode_static_scan:
   push:
