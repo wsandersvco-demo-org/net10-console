@@ -4,3 +4,7 @@ actions:
       predependency_command: |
         apt update
         apt install -y dotnet-sdk-10.0
+
+veracode_static_scan:
+  push:
+    trigger: true
