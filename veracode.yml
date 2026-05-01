@@ -8,3 +8,16 @@ actions:
 veracode_static_scan:
   push:
     trigger: true
+    branches_to_run:
+      - '*'
+  pull_request:
+    trigger: true
+    action:
+      - opened
+      - synchronize
+    target_branch:
+      - default_branch
+  analysis_on_platform: false
+  break_build_policy_findings: true
+  # Default policy to be used if a policy isn't already assigned to the application profile.
+  policy: 'Veracode Recommended Medium + SCA'
